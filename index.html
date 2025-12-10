@@ -1,247 +1,587 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>ShunsukeTada Webpage</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shunsuke Tada | Research webpage</title>
+  <meta name="description" content="Shunsuke Tada - Topological Data Analysis, bipath persistent homology, persistence modules over finite posets." />
+
+  <style>
+    :root{
+      --bg: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --accent: #0f766e;
+      --accent-soft: #e6f6f4;
+      --border: #e5e7eb;
+      --card: #fafafa;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.6;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 24px 20px 80px;
+    }
+    header{
+      display:grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items:start;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+    }
+    .title h1{
+      margin: 0 0 6px 0;
+      font-size: 2.1rem;
+      letter-spacing: 0.2px;
+    }
+    .subtitle{
+      margin: 0 0 10px 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+    .quick{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 8px 14px;
+      font-size: 0.98rem;
+    }
+    .pill{
+      display:inline-block;
+      padding: 2px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #0b4f4a;
+      font-size: 0.88rem;
+    }
+    .photo{
+      width: 150px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+      object-fit: cover;
+    }
+    nav{
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 10;
+    }
+    nav .nav-inner{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 10px 20px;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px 18px;
+      font-size: 0.98rem;
+    }
+    nav a{
+      color: #0f172a;
+      padding: 4px 2px;
+    }
+    nav a:hover{color: var(--accent)}
+    section{
+      padding-top: 34px;
+    }
+    h2{
+      font-size: 1.4rem;
+      margin: 0 0 12px 0;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    h3{
+      font-size: 1.08rem;
+      margin: 18px 0 8px 0;
+    }
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin: 12px 0;
+    }
+    ul{margin: 8px 0 0 22px}
+    li{margin: 6px 0}
+    .muted{color:var(--muted)}
+    .small{font-size:0.92rem}
+    .two-col{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 18px;
+    }
+    @media (max-width: 820px){
+      header{grid-template-columns: 1fr}
+      .two-col{grid-template-columns: 1fr}
+      .photo{width: 140px}
+    }
+    .badge-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .link-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px 16px;
+    }
+    .hr{
+      height:1px;
+      background: var(--border);
+      margin: 16px 0;
+    }
+    footer{
+      margin-top: 50px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;}
+  </style>
 </head>
- 
+
 <body>
-  
-<h1>Shunsuke Tada</h1>
-<p>I am Shunsuke Tada (多田駿介 in Japanese) studying mathematics for (mainly) Topological Data Analysis. I am currently interested in persistence modules over finite posets from a view of homological algebra, and
-  computations of their structures. <a href="https://github.com/ShunsukeTada1357"> GitHub </a>  
-  
-  <br> E-mail: shunsuke.tada.e6[ at ]tohoku.ac.jp
-  <!-- Picture -->
-  <div title="banana">
-    <img src="pics/IMG_0079.jpg" alt="my driver licence" width="150px" align="right">
+
+  <nav>
+    <div class="nav-inner">
+      <a href="#home">Home</a>
+      <a href="#preprints">Preprints</a>
+      <a href="#papers">Refereed Papers</a>
+      <a href="#software">Software / Computation</a>
+      <a href="#talks">Talks & Posters</a>
+      <a href="#cv">CV</a>
     </div>
-    <small>
-    </small>
-<!-- end Picture -->
+  </nav>
 
-<p><b>Affiliation:</b> <br> I am a posdoc at <a href="https://www.mccs.tohoku.ac.jp/index-e.html">  Mathematical Science Center for Co-Creative Society (MathCCS),
-</a> Tohoku University (April 2025 ~).
-</p>
+  <div class="container">
 
- <p>
-    <b>Preprint:</b> 
-  <br>
-  [1] Shunsuke Tada. "Stability of Bipath Persistence Diagrams." arXiv preprint arXiv:2503.01614 (2025).
-  <a href="https://arxiv.org/abs/2503.01614"> 
-    arXiv:2503.01614.  </a>
-　<br> <br>
-  [2] Toshitaka Aoki,  Shunsuke Tada. "On preservation of relative resolutions for poset representations" arXiv preprint arXiv:2506.21227(2025).
-  <a href="https://arxiv.org/abs/2506.21227"> 
-    arXiv:2506.21227.  </a>
-  </p>
+    <!-- HOME -->
+    <section id="home">
+      <header>
+        <div class="title">
+          <h1>Shunsuke Tada <span class="muted small">(多田 駿介)</span></h1>
+          <p class="subtitle">
+            Postdoctoral researcher in mathematics (Topological Data Analysis, persistence modules over finite posets,
+            bipath persistent homology).
+          </p>
 
- 
-  
-<p>
-<b>Research Paper:</b> 
- <br> [1] Shunsuke Tada. "Prime ideals in categories of representations of quivers of type A"
- (accepted date: 06/30/2022), Kyushu Journal of Mathematics.2023 Vol. 77, No. 1 p. 159-177 <a href="https://arxiv.org/abs/2205.08713"> arXiv:2205.08713.
-</a> 
-  <br> <br> [2] Toshitaka Aoki, Emerson G. Escolar, and Shunsuke Tada. "Bipath persistence" Japan Journal of Industrial and Applied Mathematics (17 December 2024).
-  <a href="https://doi.org/10.1007/s13160-024-00681-3"> link for the article. </a> 
- 
- <br>　 <br>  [3] Toshitaka Aoki, Emerson G. Escolar, and Shunsuke Tada. "Summand-injectivity of interval covers and monotonicity of interval resolution global dimensions". Journal of Applied and Computational Topology 9, 13 (2025).
- <a href="https://doi.org/10.1007/s41468-025-00210-2"> link for the article. </a>
+          <div class="badge-row">
+            <span class="pill">Topological Data Analysis</span>
+            <span class="pill">Persistence modules</span>
+            <span class="pill">Finite posets</span>
+            <span class="pill">Homological algebra</span>
+            <span class="pill">Bipath persistence</span>
+          </div>
 
-</p>
+          <div class="card">
+            <div class="two-col">
+              <div>
+                <h3>Affiliation</h3>
+                <p class="small">
+                  Postdoctoral researcher at
+                  <a href="https://www.mccs.tohoku.ac.jp/index-e.html">
+                    Mathematical Science Center for Co-Creative Society (MathCCS)
+                  </a>,
+                  Tohoku University<br />
+                  <span class="muted">April 2025 – present</span>
+                </p>
+              </div>
+              <div>
+                <h3>Contact</h3>
+                <p class="small">
+                  E-mail: <span class="mono">shunsuke.tada.e6[at]tohoku.ac.jp</span><br />
+                  GitHub:
+                  <a href="https://github.com/ShunsukeTada1357">ShunsukeTada1357</a>
+                </p>
+              </div>
+            </div>
+          </div>
 
-<p><b>Computation:</b> 
-    <br> 
-  [1]  <a href="https://github.com/ShunsukeTada1357/GabrielQuiverOfEndRingG"> Code </a> for visualizing Gabriel quiver of END(G), where G is all the direct sum of the non-iso interval modules. This code is the implementation of Proposition 6.8. of the paper "EXACT STRUCTURES FOR PERSISTECE MODULES" by B. Blanchette, T. BrüStle, and E.J.Hanson. See <a href="https://arxiv.org/abs/2308.01790"> arXiv:2308.01790 </a> for more details.
-  </p>
-  [2]  A code for calculating compressed multiplicity defined in the paper "Approximation by interval-decomposables and interval resolutions of persistence modules" by H. Asashiba, E. G. Escolar, K. Nakashima, M. Yoshiwaki. See <a href="https://arxiv.org/abs/2207.03663">arXiv:2207.03663</a>
-Definition 5.1. The code is <a href="https://github.com/ShunsukeTada1357/GabrielQuiverOfEndRingG"> available</a>, and implemented in a software <a href="https://github.com/emerson-escolar/pmgap/tree/Comp">pmgap</a>.
-  </p>
-  [3] A computation of bipath persistent homology. See <a href="https://github.com/ShunsukeTada1357/Bipathposets"> Bipathposets</a>. It is an implementation of Algorithm 3 in our paper <a href="https://arxiv.org/abs/2404.02536"> Bipath persistence</a>.
-  <p>
-    <b>Poster presentations and Talks:
-    </b> <br> [1]"Prime ideals in categories of representations of quivers of type A" at
-    <a href="https://sites.google.com/view/aatrn-poster-session/home">AATRN virtual poster session</a>  9/20/2022. 
-    <li>
-    <a href ="https://ShunsukeTada1357.github.io/ShunsukeTada_AATRNAPATG_poster_session.pdf"> poster(English).</a>
-    </li>
-  </p> [2]"パーシステント加群と区間表現(Persistence modules and interval representations)" at
-  <a href="https://sites.google.com/view/math-graduate/MATHSCI-FRESHMAN-SEMINAR/2023">第6回数理新人セミナー(Freshman Seminar 2023)</a> 2/20/2023 - 2/23/2023. 
-  <li>
-  <a href ="https://ShunsukeTada1357.github.io/%E4%B9%9D%E5%B7%9E%E5%A4%A7%E5%AD%A6%E6%95%B0%E7%90%86%E6%96%B0%E4%BA%BA%E3%82%BB%E3%83%9F%E3%83%8A%E3%83%BC30%E5%88%86.pdf"> slide(Japnese).</a>
-  </li>
-    <p>
-    [3]"Interval resolution global dimension and interval cover".  Poster presentation at <a href="https://sites.google.com/view/tdaweek2023">TDA week 2023, 7/31/2023</a>. 
-    <li>
-    <a href ="https://ShunsukeTada1357.github.io/TDAweekposter.pdf">poster(English)</a>.
-    </li>
-  </p>
-   <p>
-    [4]"On interval global dimension of posets: a characterization of case 0".  
-  Talk at <a href="https://ring-theory-japan.com/ring/oldmeeting/2023/kan/55ringsymp.html">環論表現論シンポジウム(The 55th Symposium on Ring Theory and Representation Theory)</a>
-     9/5/2023.
-    <li>
-    <a href ="https://shunsuketada1357.github.io/documents/abstract2023-09-05.pdf"> abstract(English)</a>.
-    </li>
-     <li>
-     <a href ="https://ShunsukeTada1357.github.io/TADASHUNSUKE2023.09.05.pdf"> slide(Japanese and English)</a>.
-     </li>
-   </p>
-  <p>
-    [5]"On interval global dimension of posets: a characterization of case 0".  
-  Talk at <a href="https://www.mathsoc.jp/en/meeting/tohoku23sept/index.html">日本数学会, 2023年度秋季総合分科会(The Mathematical Society of Japan, Autumn Meeting 2023 at Tohoku University)</a>
-      9/22/2023.
-    <li>
-    <a href ="https://shunsuketada1357.github.io/abstract2023-09-22.pdf"> abstract(English)</a>.
-    </li>
-<li>
-      <a href ="https://ShunsukeTada1357.github.io/slide2023-09-22.pdf"> slide(Japanese and English)</a>
-</li> 
-  </p>
-  [6]"パーシステントホモロジー解析における 区間表現のホモロジー代数的性質".  
-  Talk at <a href="https://www.mathsoc.jp/section/appliedmath/CAM/2023/">2023年度応用数学合同研究集会</a>
-      12/16/2023.
-    <li>
-    <a href ="https://shunsuketada1357.github.io/documents/abstract2023-12-16.pdf"> abstract(English)</a>.
-    </li>
-  </p>
-   </p>
-  [7]*"Posets whose persistence modules are always interval decomposable and homological invariants".  
-  Talk at <a href="https://www.jointmathematicsmeetings.org/meetings/national/jmm2024/2300_program_ss61.html#title">2024 Joint Mathematics Meetings (JMM 2024), AIM-AMS Special Session on Applied Topology Beyond Persistence Diagrams </a>
-      01/05/2024.
-    <li>
-    <a href ="https://shunsuketada1357.github.io/documents/slide2024-01-05.pdf"> slide(English)</a>.
-    </li>
- <li>
-    <a href ="https://shunsuketada1357.github.io/documents/note-abst2024-01-05.pdf"> note of abst(English)</a>.
-    </li> 
-  </p>
-  [8]*"パーシステントホモロジーにおける区間表現のホモロジー代数的性質"  
-  Talk at <a href="https://sites.google.com/view/ph-repn2024/home">パーシステントホモロジーと表現論2024</a>
-      02/22/2024.
-    <li>
-    <a href ="https://shunsuketada1357.github.io/documents/slide2024-02-22.pdf"> slide</a>.
-    </li>
-  </p>
-   [9]*"Bipath persistence and interval approximation for persistence modules over finite posets"  
-  Talk at <a href="https://www.kth.se/en/2.82512">Seminar, Applied CAT </a>
-      04/16/2024.
-    <li>
-    <a href ="https://shunsuketada1357.github.io/documents/abstract2024-04-16.pdf"> abstract</a>.
-    </li>
-  </p>
-   [10]*"Ａ Computation of Bipath Persistent Homology and Bipath Persistence Diagrams"  
-  Talk at <a href="https://sites.google.com/kyoto-u.ac.jp/apatg"> Asia Pacific Seminar on
-Applied Topology and Geometry </a>
-      09/20/2024.
-    <li>
-    <a href ="https://shunsuketada1357.github.io/documents/slide2024-09-20.pdf"> slide</a>.
-    </li>
-  </p>
-    [11]"Ａ Computation of Bipath Persistent Homology and Bipath Persistence Diagrams"  
-  Talk at  MathBio Workshop: Shape and Movement in Life Sciences.
-      03/26/2025.
-    <li>
-    <a href ="https://shunsuketada1357.github.io/documents/slide2025-03-26.pdf"> slide</a>.
-    </li>
- </p>
-     [12]"Bipath Persistent homology and its stability"  
-  TSVP Symposium: Representation Theory and Topological Data Analysis.
-      07/22/2025.
-    <li>
-    <a href ="https://shunsuketada1357.github.io/documents/slide2025-07-22.pdf"> slide</a>.
-    </li>
- </p>
-      [13]"バイパス・パーシステンス図の安定性"  
-  日本応用数理学会2025年度年会.
-      09/04/2025.
-    <li>
-    <a href ="https://shunsuketada1357.github.io/documents/abstract2025-09-04JSIAM.pdf"> abstract</a>.
-    </li>
-  </p>
-      [14]"Proposal of Bipath Persistent Homology: Visualization, Algorithm, and Stability"  <a href="https://www.mccs.tohoku.ac.jp/seminar/mathccs202501021.html"> MathCCSセミナー </a>
-  
-      10/21/2025.
-    <li>
-    <a href ="https://shunsuketada1357.github.io/documents/slide2025-10-21.pdf"> slide</a>.
-    </li>
- 
+          <div class="card">
+            <h3>Short bio</h3>
+            <p class="small">
+              I study mathematics for (mainly) Topological Data Analysis.
+              I am currently interested in persistence modules over finite posets from a viewpoint of homological algebra,
+              and computations of their structures.
+            </p>
+          </div>
+        </div>
 
+        <div>
+          <img class="photo" src="pics/IMG_0079.jpg" alt="Portrait of Shunsuke Tada" />
+        </div>
+      </header>
+    </section>
 
-       [15]"因果推論入門"  焼野CRESTのワークショップ</a>
-  
-      12/08/2025.
-     <li>
-    <a href ="https://shunsuketada1357.github.io/documents/補助ノート2025-12-08.pdf"> Supplementary note</a>.
-    </li>
-     <li>
-    <a href ="https://shunsuketada1357.github.io/documents/slide2025-12-08.pdf"> slide</a>.
-    </li>
+    <!-- PREPRINTS -->
+    <section id="preprints">
+      <h2>Preprints</h2>
+      <div class="card">
+        <ol>
+          <li>
+            Shunsuke Tada,
+            <em>Stability of Bipath Persistence Diagrams</em>,
+            arXiv:2503.01614 (2025).
+            <span class="link-row small">
+              <a href="https://arxiv.org/abs/2503.01614">arXiv</a>
+            </span>
+          </li>
+          <li>
+            Toshitaka Aoki, Shunsuke Tada,
+            <em>On preservation of relative resolutions for poset representations</em>,
+            arXiv:2506.21227 (2025).
+            <span class="link-row small">
+              <a href="https://arxiv.org/abs/2506.21227">arXiv</a>
+            </span>
+          </li>
+        </ol>
+      </div>
+    </section>
 
- 
-  <p><b>Teaching:</b> <br> I was a TA at Kobe Uinversity. <br>
-   <li>
-   2022.4.11 -- 2022.9.30 神戸大学 計算機科学入門 (Introduction to Computer Science).</li>
-   <li>
-     2022.10.1 -- 2023.2.28 神戸大学 数理モデルプログラミング(Mathematical Model Programming).
-   </li> 
-     <li>
-     2022.10.1 -- 2023.2.28 神戸大学 大学教育推進機構 数学教育部会 数学学修支援室 ティーチングアシスタント
-   </li> 
-        <li>
-     2023.4.3 -- 2023.8.31 神戸大学 大学教育推進機構 数学教育部会 数学学修支援室 ティーチングアシスタント
-   </li> 
-  </p>
+    <!-- REFEREED PAPERS -->
+    <section id="papers">
+      <h2>Refereed Papers</h2>
+      <div class="card">
+        <ol>
+          <li>
+            Shunsuke Tada,
+            <em>Prime ideals in categories of representations of quivers of type A</em>,
+            Kyushu Journal of Mathematics 77(1), 159–177 (2023).
+            <span class="muted small">Accepted: 06/30/2022</span>
+            <span class="link-row small">
+              <a href="https://arxiv.org/abs/2205.08713">arXiv</a>
+            </span>
+          </li>
+          <li>
+            Toshitaka Aoki, Emerson G. Escolar, Shunsuke Tada,
+            <em>Bipath persistence</em>,
+            Japan Journal of Industrial and Applied Mathematics (17 December 2024).
+            <span class="link-row small">
+              <a href="https://doi.org/10.1007/s13160-024-00681-3">Article</a>
+            </span>
+          </li>
+          <li>
+            Toshitaka Aoki, Emerson G. Escolar, Shunsuke Tada,
+            <em>Summand-injectivity of interval covers and monotonicity of interval resolution global dimensions</em>,
+            Journal of Applied and Computational Topology 9, 13 (2025).
+            <span class="link-row small">
+              <a href="https://doi.org/10.1007/s41468-025-00210-2">Article</a>
+            </span>
+          </li>
+        </ol>
+      </div>
+    </section>
 
-   <p><b>Reserch Assistant:</b> <br> RA at Kobe Uinversity. <br>
-   <li>
-   2022.9.20 -- 2023.3.31 学生研究支援員.</li>
-   <li>
-     2023.4.1 -- 2024.3.31 学生研究支援員.
-   </li> 
-     <li>
-     2024.10.2 -- 2025.2.20 学生研究支援員
-   </li> 
-  </p>
- 
-<p><b>Fellowship:</b> <br> <a href ="https://www.jst.go.jp/jisedai/spring/en/index.html">
- [1] Support for Pioneering Reserch Initiated by the Next Generation, SPRING </a>, 2023/04~2025/03.　「区間表現，非区間表現及び位相的データ解析への応用に関する研究」
-  </p>
+    <!-- SOFTWARE / COMPUTATION -->
+    <section id="software">
+      <h2>Software / Computation</h2>
 
- </b> <br>
-  [2] 研究活動スタート支援, 2025-07-31 – 2027-03-31.　「バイパス・パーシステントホモロジー理論の応用への展開 ー逆解析手法の構築と実装ー」
-  </p>
+      <div class="card">
+        <ol>
+          <li>
+            <a href="https://github.com/ShunsukeTada1357/GabrielQuiverOfEndRingG">Code</a>
+            for visualizing the Gabriel quiver of END(G), where G is the direct sum of all non-isomorphic interval modules.
+            This implements Proposition 6.8 of
+            <em>Exact Structures for Persistence Modules</em> by B. Blanchette, T. Brüstle, and E. J. Hanson.
+            <span class="link-row small">
+              <a href="https://arxiv.org/abs/2308.01790">arXiv:2308.01790</a>
+            </span>
+          </li>
+          <li>
+            Code for calculating compressed multiplicity defined in
+            <em>Approximation by interval-decomposables and interval resolutions of persistence modules</em>
+            by H. Asashiba, E. G. Escolar, K. Nakashima, M. Yoshiwaki (Definition 5.1).
+            The code is
+            <a href="https://github.com/ShunsukeTada1357/GabrielQuiverOfEndRingG">available here</a>
+            and implemented in
+            <a href="https://github.com/emerson-escolar/pmgap/tree/Comp">pmgap</a>.
+            <span class="link-row small">
+              <a href="https://arxiv.org/abs/2207.03663">arXiv:2207.03663</a>
+            </span>
+          </li>
+          <li>
+            A computation of bipath persistent homology.
+            See <a href="https://github.com/ShunsukeTada1357/Bipathposets">Bipathposets</a>.
+            This is an implementation of Algorithm 3 in our paper
+            <a href="https://arxiv.org/abs/2404.02536"><em>Bipath persistence</em></a>.
+          </li>
+        </ol>
+      </div>
+    </section>
 
-<b>Proceedings and reports:</b>　
- <br>　[1] パーシステント加群と区間表現(Persistence modules and interval representations)，第6回数理新人セミナー報告集．
- </p>
- [2] <a href ="https://ring-theory-japan.com/ring/oldmeeting/2023/report2023/all2023.pdf">
-  第55回 環論および表現論シンポジウム報告集 </a>, 2024年2月,p.4--11.
-  </p>
+    <!-- TALKS -->
+    <section id="talks">
+      <h2>Talks & Poster Presentations</h2>
 
-  
-  <p><b>Education:</b> 
-    <br> 
-    April 1 2016 -- March 26 2020: Undergraduate course at <a href ="https://www.titech.ac.jp/english"> Tokyo Institute of Technology</a> <a href="http://www.math.titech.ac.jp/en/page_01.html"> Department of Mathematics</a>. 
-    <br>
-    Supervisor: <a href="https://www.ms.u-tokyo.ac.jp/~kelly/"> Dr. Shane Kelly </a>.
-  </p>
-  <p>
-  April 1 2020 -- March 26 2022: Master’s course at <a href ="https://www.titech.ac.jp/english"> Tokyo Institute of Technology</a> <a href="http://www.math.titech.ac.jp/en/page_01.html"> Department of Mathematics</a>.  (Master theses : "Prime ideals in categories of representations of quivers of type A")
-  <br>
-     Supervisor: <a href = "https://www.ms.u-tokyo.ac.jp/~kelly/"> Dr. Shane Kelly</a> .
-  </p>
+      <div class="card">
+        <ol>
+          <li>
+            <em>Prime ideals in categories of representations of quivers of type A</em>,
+            <a href="https://sites.google.com/view/aatrn-poster-session/home">AATRN virtual poster session</a>,
+            2022-09-20.
+            <span class="link-row small">
+              <a href="https://ShunsukeTada1357.github.io/ShunsukeTada_AATRNAPATG_poster_session.pdf">Poster (EN)</a>
+            </span>
+          </li>
 
-   <p>
-  April 1 2022 -- March 25 2025: Doctor’s course at <a　href="https://www.kobe-u.ac.jp/en/faculties_graduate_schools/grad/h.html"> Kobe University Graduate School of Human Development and Environment</a>.  (Ph.D. theses : "Proposal of Bipath Persistent Homology: Interval-Decomposability, Algorithm, and Stability")
-  <br>
-     Supervisor: <a href = "https://emerson-escolar.github.io/index.html"> Dr. Emerson G. Escolar</a> . 
-  </p>
+          <li>
+            <em>パーシステント加群と区間表現 (Persistence modules and interval representations)</em>,
+            <a href="https://sites.google.com/view/math-graduate/MATHSCI-FRESHMAN-SEMINAR/2023">Freshman Seminar 2023</a>,
+            2023-02-20 – 2023-02-23.
+            <span class="link-row small">
+              <a href="https://ShunsukeTada1357.github.io/%E4%B9%9D%E5%B7%9E%E5%A4%A7%E5%AD%A6%E6%95%B0%E7%90%86%E6%96%B0%E4%BA%BA%E3%82%BB%E3%83%9F%E3%83%8A%E3%83%BC30%E5%88%86.pdf">Slides (JA)</a>
+            </span>
+          </li>
 
-   <p><b>Scientific visit:</b> 
-    <br> 
-    March 1 -- April 30 2024:  I studied topological data analysis (TDA) at <a　href="https://www.kth.se/math/act/tda"> Royal Institute of Technology </a>, Sweden under Prof. Wojciech Chachólski. 
-    <br>
-  </p>
+          <li>
+            <em>Interval resolution global dimension and interval cover</em>,
+            poster at <a href="https://sites.google.com/view/tdaweek2023">TDA Week 2023</a>,
+            2023-07-31.
+            <span class="link-row small">
+              <a href="https://ShunsukeTada1357.github.io/TDAweekposter.pdf">Poster (EN)</a>
+            </span>
+          </li>
+
+          <li>
+            <em>On interval global dimension of posets: a characterization of case 0</em>,
+            <a href="https://ring-theory-japan.com/ring/oldmeeting/2023/kan/55ringsymp.html">
+              The 55th Symposium on Ring Theory and Representation Theory
+            </a>,
+            2023-09-05.
+            <span class="link-row small">
+              <a href="https://shunsuketada1357.github.io/documents/abstract2023-09-05.pdf">Abstract (EN)</a>
+              <a href="https://ShunsukeTada1357.github.io/TADASHUNSUKE2023.09.05.pdf">Slides (JA/EN)</a>
+            </span>
+          </li>
+
+          <li>
+            <em>On interval global dimension of posets: a characterization of case 0</em>,
+            <a href="https://www.mathsoc.jp/en/meeting/tohoku23sept/index.html">
+              Mathematical Society of Japan, Autumn Meeting 2023
+            </a>,
+            2023-09-22.
+            <span class="link-row small">
+              <a href="https://shunsuketada1357.github.io/abstract2023-09-22.pdf">Abstract (EN)</a>
+              <a href="https://ShunsukeTada1357.github.io/slide2023-09-22.pdf">Slides (JA/EN)</a>
+            </span>
+          </li>
+
+          <li>
+            <em>パーシステントホモロジー解析における区間表現のホモロジー代数的性質</em>,
+            <a href="https://www.mathsoc.jp/section/appliedmath/CAM/2023/">
+              Joint Research Meeting on Applied Mathematics 2023
+            </a>,
+            2023-12-16.
+            <span class="link-row small">
+              <a href="https://shunsuketada1357.github.io/documents/abstract2023-12-16.pdf">Abstract (EN)</a>
+            </span>
+          </li>
+
+          <li>
+            <em>Posets whose persistence modules are always interval decomposable and homological invariants</em>,
+            <a href="https://www.jointmathematicsmeetings.org/meetings/national/jmm2024/2300_program_ss61.html#title">
+              JMM 2024, AIM-AMS Special Session
+            </a>,
+            2024-01-05.
+            <span class="link-row small">
+              <a href="https://shunsuketada1357.github.io/documents/slide2024-01-05.pdf">Slides (EN)</a>
+              <a href="https://shunsuketada1357.github.io/documents/note-abst2024-01-05.pdf">Abstract note (EN)</a>
+            </span>
+          </li>
+
+          <li>
+            <em>パーシステントホモロジーにおける区間表現のホモロジー代数的性質</em>,
+            <a href="https://sites.google.com/view/ph-repn2024/home">パーシステントホモロジーと表現論2024</a>,
+            2024-02-22.
+            <span class="link-row small">
+              <a href="https://shunsuketada1357.github.io/documents/slide2024-02-22.pdf">Slides</a>
+            </span>
+          </li>
+
+          <li>
+            <em>Bipath persistence and interval approximation for persistence modules over finite posets</em>,
+            <a href="https://www.kth.se/en/2.82512">Applied CAT Seminar</a>,
+            2024-04-16.
+            <span class="link-row small">
+              <a href="https://shunsuketada1357.github.io/documents/abstract2024-04-16.pdf">Abstract</a>
+            </span>
+          </li>
+
+          <li>
+            <em>A Computation of Bipath Persistent Homology and Bipath Persistence Diagrams</em>,
+            <a href="https://sites.google.com/kyoto-u.ac.jp/apatg">Asia Pacific Seminar on Applied Topology and Geometry</a>,
+            2024-09-20.
+            <span class="link-row small">
+              <a href="https://shunsuketada1357.github.io/documents/slide2024-09-20.pdf">Slides</a>
+            </span>
+          </li>
+
+          <li>
+            <em>A Computation of Bipath Persistent Homology and Bipath Persistence Diagrams</em>,
+            MathBio Workshop: Shape and Movement in Life Sciences,
+            2025-03-26.
+            <span class="link-row small">
+              <a href="https://shunsuketada1357.github.io/documents/slide2025-03-26.pdf">Slides</a>
+            </span>
+          </li>
+
+          <li>
+            <em>Bipath Persistent Homology and its stability</em>,
+            TSVP Symposium: Representation Theory and Topological Data Analysis,
+            2025-07-22.
+            <span class="link-row small">
+              <a href="https://shunsuketada1357.github.io/documents/slide2025-07-22.pdf">Slides</a>
+            </span>
+          </li>
+
+          <li>
+            <em>バイパス・パーシステンス図の安定性</em>,
+            JSIAM Annual Meeting 2025,
+            2025-09-04.
+            <span class="link-row small">
+              <a href="https://shunsuketada1357.github.io/documents/abstract2025-09-04JSIAM.pdf">Abstract</a>
+            </span>
+          </li>
+
+          <li>
+            <em>Proposal of Bipath Persistent Homology: Visualization, Algorithm, and Stability</em>,
+            <a href="https://www.mccs.tohoku.ac.jp/seminar/mathccs202501021.html">MathCCS Seminar</a>,
+            2025-10-21.
+            <span class="link-row small">
+              <a href="https://shunsuketada1357.github.io/documents/slide2025-10-21.pdf">Slides</a>
+            </span>
+          </li>
+
+          <li>
+            <em>因果推論入門</em>,
+            焼野CREST Workshop,
+            2025-12-08.
+            <span class="link-row small">
+              <a href="https://shunsuketada1357.github.io/documents/補助ノート2025-12-08.pdf">Supplementary note</a>
+              <a href="https://shunsuketada1357.github.io/documents/slide2025-12-08.pdf">Slides</a>
+            </span>
+          </li>
+        </ol>
+
+        <p class="muted small" style="margin-top:14px;">
+          (You can later move older talks to a separate page or fold them into a &lt;details&gt; block.)
+        </p>
+      </div>
+    </section>
+
+    <!-- CV -->
+    <section id="cv">
+      <h2>CV</h2>
+
+      <div class="card">
+        <h3>Teaching Experience</h3>
+        <ul>
+          <li>2022-04-11 – 2022-09-30: TA, Introduction to Computer Science, Kobe University.</li>
+          <li>2022-10-01 – 2023-02-28: TA, Mathematical Model Programming, Kobe University.</li>
+          <li>2022-10-01 – 2023-02-28: TA, Mathematics Learning Support Room, Kobe University.</li>
+          <li>2023-04-03 – 2023-08-31: TA, Mathematics Learning Support Room, Kobe University.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Research Assistant</h3>
+        <ul>
+          <li>2022-09-20 – 2023-03-31: Student research assistant, Kobe University.</li>
+          <li>2023-04-01 – 2024-03-31: Student research assistant, Kobe University.</li>
+          <li>2024-10-02 – 2025-02-20: Student research assistant, Kobe University.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Fellowships / Grants</h3>
+        <ul>
+          <li>
+            <a href="https://www.jst.go.jp/jisedai/spring/en/index.html">
+              Support for Pioneering Research Initiated by the Next Generation (SPRING)
+            </a>,
+            2023-04 – 2025-03.<br />
+            <span class="small muted">「区間表現，非区間表現及び位相的データ解析への応用に関する研究」</span>
+          </li>
+          <li>
+            研究活動スタート支援,
+            2025-07-31 – 2027-03-31.<br />
+            <span class="small muted">「バイパス・パーシステントホモロジー理論の応用への展開 ー逆解析手法の構築と実装ー」</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Proceedings and Reports</h3>
+        <ul>
+          <li>パーシステント加群と区間表現 (Persistence modules and interval representations), 第6回数理新人セミナー報告集.</li>
+          <li>
+            <a href="https://ring-theory-japan.com/ring/oldmeeting/2023/report2023/all2023.pdf">
+              第55回 環論および表現論シンポジウム報告集
+            </a>,
+            2024年2月, p.4–11.
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Education</h3>
+        <ul>
+          <li>
+            2016-04-01 – 2020-03-26:
+            Undergraduate, <a href="https://www.titech.ac.jp/english">Tokyo Institute of Technology</a>,
+            <a href="http://www.math.titech.ac.jp/en/page_01.html">Department of Mathematics</a>.<br />
+            <span class="small muted">Supervisor: <a href="https://www.ms.u-tokyo.ac.jp/~kelly/">Shane Kelly</a></span>
+          </li>
+          <li>
+            2020-04-01 – 2022-03-26:
+            Master’s, Tokyo Institute of Technology, Department of Mathematics.<br />
+            <span class="small muted">Thesis: “Prime ideals in categories of representations of quivers of type A”</span><br />
+            <span class="small muted">Supervisor: <a href="https://www.ms.u-tokyo.ac.jp/~kelly/">Shane Kelly</a></span>
+          </li>
+          <li>
+            2022-04-01 – 2025-03-25:
+            Ph.D., <a href="https://www.kobe-u.ac.jp/en/faculties_graduate_schools/grad/h.html">
+              Kobe University Graduate School of Human Development and Environment
+            </a>.<br />
+            <span class="small muted">Thesis: “Proposal of Bipath Persistent Homology: Interval-Decomposability, Algorithm, and Stability”</span><br />
+            <span class="small muted">Supervisor: <a href="https://emerson-escolar.github.io/index.html">Emerson G. Escolar</a></span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Scientific Visit</h3>
+        <ul>
+          <li>
+            2024-03-01 – 2024-04-30:
+            Visiting researcher in TDA at
+            <a href="https://www.kth.se/math/act/tda">KTH Royal Institute of Technology</a>, Sweden,
+            under Prof. Wojciech Chachólski.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <div class="link-row">
+        <span>© Shunsuke Tada</span>
+        <span class="muted">Built for GitHub Pages</span>
+      </div>
+    </footer>
+
+  </div>
 </body>
 </html>
